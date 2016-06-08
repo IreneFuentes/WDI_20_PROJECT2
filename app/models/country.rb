@@ -1,5 +1,5 @@
 class Country < ActiveRecord::Base
 
   has_many :visits
-  has_many :user
+  has_and_belongs_to_many :users
 end

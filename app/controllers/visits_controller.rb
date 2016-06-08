@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    @visits = current_user.visits
   end
 
   # GET /visits/1
@@ -14,21 +14,25 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
+    @countries = Country.all
     @visit = Visit.new
   end
 
   # GET /visits/1/edit
   def edit
+       @countries = Country.all
   end
 
   # POST /visits
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
+    @visit.user = current_user
+    # current_user.visit.push(@visit)
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Visit was successfully created.' }
         format.json { render :show, status: :created, location: @visit }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Visit was successfully updated.' }
         format.json { render :show, status: :ok, location: @visit }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Visit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:user_id, :country_id)
+      params.require(:visit).permit(:user_id, :country_id, :image, :description)
     end
 end

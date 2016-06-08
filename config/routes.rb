@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   root 'static#homepage'
 
-  get 'users/show'
+  get 'users/:id', to: "users#show", as: "user"
 
-  get 'users/:id', to: "users#show"
+  get 'countries/:id/visit', to: "countries#visit"
   
 
   # The priority is based upon order of creation: first created -> highest priority.

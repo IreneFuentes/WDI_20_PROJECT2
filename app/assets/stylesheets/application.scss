@@ -1,0 +1,51 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thumbnail {
+  width: 420px;
+  height: 300px;
+  border: none;
+
+  img {
+      border-radius: 5px;
+      width: 412px;
+      height: 275px;
+  }
+}
+
+
+.proverb {
+  font-style: inherit;
+  // font-family: fantasy;
+  font-size: 45px;
+  text-align: center;
+  color: black;
+}
+
+.profile-picture {
+  width: 300px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+
+
+iframe {
+  border: 2px solid black;
+}
+

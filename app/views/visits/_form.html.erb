@@ -12,13 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
+
   <div class="field">
-    <%= f.label :country_id %><br>
-    <%= f.number_field :country_id %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
+
+
+
+  <div class="field">
+  <select name="visit[country_id]">
+    <% @countries.each do |country| %>
+        <option value="<%= country.id %>"><%= country.name %></option>
+    <% end %>
+  </select>
+  </div>
+  
+
+<!-- Añado el campo de texto para el comentario de cada visita -->
+ 
+<br>
+<br>
+
+ 
+
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

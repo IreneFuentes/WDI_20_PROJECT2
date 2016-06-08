@@ -1,16 +1,65 @@
-<h1>My Holidays</h1>
-
-<p><%= @user.username %></p>
-<p><%= @user.age %></p>
 
 
-<ul>
   
-  <a href="" >Mexico/Cancun</a>
-  <a href="">Spain/Malaga</a>
-  <a href="">Italy/Rome</a>
+  <div class="row">
+     <div class="col-xs-12">
+    </div>
+</div>
+<div class="container" id="profile">
+
+<div class="row" >
+   <div class="col-xs-6">
+      <img class="profile-picture" src="<%= @user.profile_picture %>">
+   </div> 
+   <div class="col-xs-6">
+      <p><strong>Name:</strong><%= @user.username.capitalize %></p>
+      <p><strong>Email:</strong><%= @user.email %></p>
+      <p><strong>Age:</strong><%= @user.age %></p>
+      <p><strong>Description:</strong><%= @user.description %></p>
+      <p><strong>Favorite Country:</strong><%= @user.favorite_country %></p>
+   </div>
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+  <% @user.countries.each do |country| %>
+    <!-- <ul>
+      <li><%= link_to country.name, country_path(country) %></li>
+    </ul> -->
+  <% end %>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Where I've been on holiday</h2>
+  </div>
   
+<% @user.visits.each do |visit| %>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= link_to visit.country.name, visit_path(visit)%></div>
+        <div class="panel-body">
+          <a href="#" class="thumbnail">
+            <img src="<%= visit.image %>" class="image">
+          </a>
+        </div>
+         <div class="panel-body">
+          <p><%= visit.description %></p>
+        </div>
+      </div>
+    </div>
+ <!--  <%= image_tag visit.image %>
+  <%= link_to visit.country.name, visit_path(visit) %>
+  <%= visit.description %> -->
 
-</ul>
+<% end %>
+</div>
 
-<%= link_to 'Add New Country', new_post_path %>
+

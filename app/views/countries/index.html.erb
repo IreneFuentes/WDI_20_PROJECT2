@@ -2,26 +2,18 @@
 
 <h1>Listing Countries</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<ul>
+  <li>
     <% @countries.each do |country| %>
-      <tr>
-        <td><%= country.name %></td>
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <ul class="col-md-6 col-sm-12">
+      <li><%= image_tag country.flag, width: "200", height: "200" %></li>
+      <li><%= link_to country.name, country_path(country) %></li>
+    </ul>
     <% end %>
-  </tbody>
-</table>
-
+  </li>
+</ul>
 <br>
-
 <%= link_to 'New Country', new_country_path %>
+
+
+

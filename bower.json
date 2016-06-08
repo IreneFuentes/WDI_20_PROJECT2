@@ -1,0 +1,17 @@
+{
+  "name": "WDI_20_PROJECT2",
+  "homepage": "https://github.com/IreneFuentes/WDI_20_PROJECT2",
+  "authors": [
+    "Irene Fuentes <fuentes.acedo1.@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

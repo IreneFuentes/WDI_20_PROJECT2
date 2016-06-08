@@ -1,5 +1,13 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :set_country, only: [:show, :edit, :update, :destroy, :visit]
+
+  def visit
+    @country.users.push current_user
+    redirect_to @country
+
+
+  end
+
 
   # GET /countries
   # GET /countries.json
@@ -25,6 +33,7 @@ class CountriesController < ApplicationController
   # POST /countries.json
   def create
     @country = Country.new(country_params)
+    current_user.countries.push(@country)
 
     respond_to do |format|
       if @country.save
@@ -69,6 +78,6 @@ class CountriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      params.require(:country).permit(:name)
+      params.require(:country).permit(:name, :user_id, :capital, :population, :currency, :flag, :language, :google_map)
     end
 end

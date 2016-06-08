@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @visit.user_id %>
+  <%= @visit.user.username %>
 </p>
 
 <p>
@@ -10,5 +10,16 @@
   <%= @visit.country_id %>
 </p>
 
-<%= link_to 'Edit', edit_visit_path(@visit) %> |
-<%= link_to 'Back', visits_path %>
+<p>
+  <strong>Description:</strong>
+  <%= @visit.user.description %>
+</p>
+
+<p>
+   <b>Visit Image</b>
+   <%= image_tag @visit.image.url, width: '200', height: '200' %>
+ </p>
+
+<%= link_to 'Edit', edit_visit_path(@visit) %>
+<%= link_to 'Delete', visit_path, method: 'delete' %>
+<%= link_to 'Back', user_path(current_user) %>

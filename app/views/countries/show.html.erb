@@ -1,7 +1,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag @country.flag %>
+      <%= image_tag @country.flag, width: 300, height: 300 %>
       <h3><%= @country.name %></h3>
     </div>
     <div class="col-md-4">
@@ -11,6 +11,7 @@
         <li><strong>Currency:</strong><%= @country.currency %></li>
         <li><strong>Population:</strong><%= @country.population %></li>
       </ul>
+      <%= link_to "Edit", edit_country_path(@country) %>
     </div>
     <div class="col-md-4">
        <iframe src="<%= @country.google_map %>" width="400" height="300" frameborder="0" allowfullscreen></iframe>  
@@ -18,7 +19,7 @@
   </div>
 
 
-
+<% if @country.visits.any? %>
 <h2>Holidays in <%= @country.name %></h2>
 
 <div class="row">
@@ -27,13 +28,14 @@
       <div class="panel panel-default">
         <div class="panel-heading"><a href="/users/<%= visit.user.id %>"><%= visit.user.username %></a></div>
         <div class="panel-body">
-          <a href="#" class="thumbnail">
-            <img src="<%= visit.image %>" alt="">
+          <a href="#">
+            <img src="<%= visit.image %>" alt=""  class="image">
           </a>
         </div>
       </div>
     </div>
-<% end %>
+  <% end %>
 </div>
+<% end %>
 </div>
   

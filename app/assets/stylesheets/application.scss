@@ -20,9 +20,10 @@ ul {
   width: 420px;
   height: 300px;
   border: none;
+  border-radius: 5px;
 }
 
-  .image {
+  .image {                                            
       border-radius: 5px;
       width: 400px;
       height: 300px;
@@ -88,12 +89,22 @@ margin: 0 auto;
 }
 
 #bannertop {
-  height: 350px;
+  height: 200px;
   width: 100%;
   border: 1px solid black;
   background: url(http://www.andaluciatipica.com/blog/wp-content/uploads/2015/11/muelle-uno-noche-malaga-700x329.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 0 -194px;
+}
+
+.container{
+  margin-top: 20px;
+}
+
+.navbar-default{
+  margin-bottom: 0;
+  border: 0;
 }
 
 .container-fluid {
@@ -104,6 +115,7 @@ margin: 0 auto;
 .col-md-4 {
 
   img {
+    border-radius: 5px;
     width: 100%;
   }
 }

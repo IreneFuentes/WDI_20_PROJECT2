@@ -1,50 +1,66 @@
-<%= form_for(@country) do |f| %>
-  <% if @country.errors.any? %>
+
+<%= form_for(@country, html: {class: 'form-horizontal'}) do |f| %>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if @country.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
 
       <ul>
-      <% @country.errors.full_messages.each do |message| %>
+        <% @country.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :flag %><br>
-    <%= f.text_field :flag %>
-  </div>
-  <div class="field">
-    <%= f.label :capital %><br>
-    <%= f.text_field :capital %>
-  </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
-  </div>
-  <div class="field">
-    <%= f.label :population %><br>
-    <%= f.number_field :population %>
-  </div>
-  <div class="field">
-    <%= f.label :currency %><br>
-    <%= f.text_field :currency %>
-  </div>
-  <div class="field">
-    <%= f.label :google_map %><br>
-    <%= f.text_field :google_map %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :flag, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :flag, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :capital, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :capital , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :language, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :language , class: 'form-control'%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :population, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.number_field :population, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :currency, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :currency, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :google_map, class: 'col-xs-4 label-control' %>
+      <div class="col-xs-8">
+        <%= f.text_field :google_map, class: 'form-control' %>
+      </div>
+    </div>
 
-
-
-
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
+  <div class='panel-footer'>
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+</div>
 <% end %>
